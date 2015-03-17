@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Scribesoft::VERSION
   spec.authors       = ["Joe Heth"]
   spec.email         = ["joeheth@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Interacts with Scribe Software's RESTful API}
+  spec.description   = %q{Perform RESTful actions against Scribe Software's API}
+  spec.homepage      = "https://endpoint.scribesoft.com/Swagger/Overview"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -22,5 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
 
   spec.add_development_dependency "httparty", "~> 0.13.3"
-  spec.add_development_dependency "awesome_print", "~> 1.6.1"
+  spec.add_development_dependency "awesome_print", "~> 1.6.1", "< 1.7"
 end
