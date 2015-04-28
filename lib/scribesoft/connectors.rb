@@ -7,7 +7,7 @@ module Scribesoft
     end
 
     def install(connector_id)
-      self.post_action("#{connector_id}/install")
+      self.post_action(connector_id, "install")
     end
 
     def type

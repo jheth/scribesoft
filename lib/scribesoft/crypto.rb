@@ -17,8 +17,7 @@ module Scribesoft
     # :return: A reusable derived key
     def generate_derived_key(org_key)
       salted_password = OpenSSL::PKCS5.pbkdf2_hmac_sha1(org_key, SALT, ITERATIONS, 32)
-      #salted_password_hex = salted_password.unpack('H*')[0]
-      return Base64.encode64(salted_password)
+      return Base64.strict_encode64(salted_password)
     end
 
     # :param plain_text_message: The string message that needs encrypting
@@ -38,7 +37,7 @@ module Scribesoft
       # encrypt the padded message with AES
       # base64 encode the encrypted message for transport
       # base64 encode the initial vector and prepend it to the message. Scribe will peel this off and use it to decrypt
-      encrypted_message = Base64.encode64(iv) + Base64.encode64(encrypted)
+      encrypted_message = Base64.strict_encode64(iv) + Base64.strict_encode64(encrypted)
 
       return encrypted_message
     end

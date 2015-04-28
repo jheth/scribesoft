@@ -27,7 +27,7 @@ module Scribesoft
       }
     end
 
-    def get_all(path, data={})
+    def get_all(path='', data={})
       HTTParty.get(build_url('', path: path), options.merge(data))
     end
 
@@ -48,8 +48,10 @@ module Scribesoft
       )
     end
 
-    def post_action(action, data={})
-      url = "#{build_url}/#{action}"
+    def post_action(id, action, data={})
+      url = build_url(id)
+      url << "/#{action}" unless action.to_s.blank?
+
       HTTParty.post(url,
         options.merge(
           body: data.to_json

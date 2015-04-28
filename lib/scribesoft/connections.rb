@@ -7,11 +7,11 @@ module Scribesoft
     end
 
     def reset(connection_id)
-      self.post_action("#{connection_id}/reset")
+      self.post_action(connection_id, 'reset')
     end
 
     def test(connection_id, agent_id)
-      self.post_action("#{connection_id}/test?agentId=#{agent_id}")
+      self.post_action(connection_id, "test?agentId=#{agent_id}")
     end
 
     def status(command_id)

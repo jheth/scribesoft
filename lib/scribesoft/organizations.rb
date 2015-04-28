@@ -3,8 +3,8 @@ module Scribesoft
     include Scribesoft::Actions
 
     def create_child_org(org_request)
-      puts org_request.to_hash
-      self.post(org_request.to_hash)
+      # No id, no extra path
+      self.post_action(id='', path='', org_request.to_hash)
     end
 
     def type
@@ -12,9 +12,8 @@ module Scribesoft
       ''
     end
 
-    def org_id
-      nil
+    def organization_id
+      ''
     end
-
   end
 end
