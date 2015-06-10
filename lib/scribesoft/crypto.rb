@@ -32,7 +32,12 @@ module Scribesoft
       cipher.key = derived_key
       iv = cipher.random_iv
 
-      encrypted = cipher.update(plain_text_message) + cipher.final
+      if plain_text_message.nil? || plain_text_message.empty?
+        encrypted = cipher.final
+      else
+        encrypted = cipher.update(plain_text_message) + cipher.final
+      end
+
       # pad with pkcs7 encoder, this ensures we round up to a block of 16
       # encrypt the padded message with AES
       # base64 encode the encrypted message for transport
