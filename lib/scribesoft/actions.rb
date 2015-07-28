@@ -13,7 +13,8 @@ module Scribesoft
       raise "Email/Password or Encoded Credentials must be provided" if email.nil? && password.nil? && encoded_credentials.nil?
 
       @hostname = hostname || "endpoint.scribesoft.com"
-      @hostname << "/v1/orgs"
+      # Append will create new string.
+      @hostname += "/v1/orgs"
     end
 
     def options
